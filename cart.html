@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Корзина</title>
+  <title>Корзина — Secret Jersey</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+
+    <a href="index.html" class="back-btn">
+      ← На главную
+    </a>
+
+    <h1>Корзина</h1>
+
+    <a href="cart.html" class="cart-btn">
+      🛒 Корзина
+    </a>
+
+  </div>
+</header>
+
+<main class="cart">
+  <div id="cart-items"></div>
+
+  <h2>Данные для доставки</h2>
+
+  <div class="delivery">
+
+    <label>
+      ФИО
+      <input type="text" id="name" placeholder="Иванов Иван Иванович">
+    </label>
+
+    <label>
+      Номер телефона
+      <input type="tel" id="phone" placeholder="+7 900 000 00 00">
+    </label>
+
+    <label>
+      Адрес пункта выдачи СДЭК
+      <input type="text" id="address" placeholder="г. Москва, ПВЗ СДЭК №123">
+    </label>
+
+    </p>
+
+  </div>
+
+  <div class="promo-block">
+  <label for="promo">Промокод (необязательно)</label>
+  <input type="text" id="promo" placeholder="Введите промокод">
+  <button type="button" id="apply-promo">Применить</button>
+  <p id="promo-message"></p>
+</div>
+
+
+<div class="cart-total">
+  <p>Товары: <span id="products-price">0</span> ₽</p>
+  <p>Доставка: <span id="delivery-price">550</span> ₽</p>
+  <hr>
+  <p class="total">
+    Итого: <span id="total-price">0</span> ₽
+  </p>
+
+  <button class="buy" id="go-payment">Оформить заказ</button>
+</div>
+
+
+</main>
+
+<script src="cart.js"></script>
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Оплата заказа</title>
+  <title>Оплата заказа — Secret Jersey</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- 🔔 ПЛАШКА -->
+<div id="success-banner" class="success-banner">
+  Заказ отправлен
+</div>
+
+<header class="header">
+  <a href="cart.html">← Назад</a>
+  <h1>Оплата</h1>
+</header>
+
+<main class="payment">
+
+  <!-- 💰 СУММА -->
+  <div class="payment-card">
+    <h2>Сумма к оплате</h2>
+    <p class="payment-total">
+      <span id="payment-total">0 ₽</span>
+    </p>
+
+    <!-- ⏱ ТАЙМЕР -->
+    <p class="payment-timer">
+      Осталось времени: <span id="payment-timer">15:00</span>
+    </p>
+  </div>
+
+  <!-- 🏦 РЕКВИЗИТЫ -->
+  <div class="payment-card">
+    <h3>Реквизиты для оплаты</h3>
+    <p><b>Имя получателя:</b> Владислав К.</p>
+    <p><b>СБП/Банк:</b> Т-Банк</p>
+    <p><b>Номер телефона:</b> +7 910 373 57 17</p>
+    <p><b>ВАЖНО! В комментарии перевода напишите ФИО, на чьё имя оформлен заказ
+    <p class="payment-note">
+      После оплаты нажмите кнопку «Я оплатил»
+    </p>
+  </div>
+
+  <!-- ✅ КНОПКА -->
+  <button id="paid-btn" class="paid-btn">
+    Я оплатил
+  </button>
+
+<div id="payment-success" class="payment-success hidden">
+  <h2>Спасибо за заказ!</h2>
+  <p>
+    Оплата будет проверена в течение 1 часа.<br>
+    Когда мы проверим оплату, заказ появится в Вашем личном кабинете
+    в приложении СДЭК.
+  </p>
+
+  <a href="index.html" class="back-home-btn">
+    Вернуться на главную
+  </a>
+</div>
+
+
+
+</main>
+
+<script src="payment.js"></script>
+</body>
+</html>
+
