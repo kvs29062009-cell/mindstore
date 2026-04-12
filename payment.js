@@ -1,4 +1,4 @@
-﻿document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
 
   const DELIVERY_PRICE = 550;
 
@@ -20,7 +20,7 @@
   const promo = localStorage.getItem("promo");
 let discount = 0;
 
-if (promo === "UHGYYUD") {
+if (promo === "CX") {
   discount = productsTotal * 0.10;
 }
 
@@ -121,12 +121,3 @@ const total = productsTotal - discount + DELIVERY_PRICE;
   }
 
 });
-
-
-
-
-
-
-
-
-
