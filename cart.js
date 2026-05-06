@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const totalPriceEl = document.getElementById("total-price");
 
   const DELIVERY_PRICE = 550;
-  const PROMO_CODE = "KN30FBW2";
+  const PROMO_CODE = "MINDSTORE";
   const PROMO_DISCOUNT = 0.30;
 
   // 👉 читаем промокод при загрузке
