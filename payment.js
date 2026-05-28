@@ -1,7 +1,7 @@
 ﻿document.addEventListener("DOMContentLoaded", () => {
   // ---------- КОНСТАНТЫ ----------
   const DELIVERY_PRICE = 550;
-  const PROMO_CODE = "ME";
+  const PROMO_CODE = "SUMMER";
   const PROMO_DISCOUNT = 0.30;
 
   // ---------- НАСТРОЙКИ EMAILJS (ЗАМЕНИТЕ НА СВОИ) ----------
