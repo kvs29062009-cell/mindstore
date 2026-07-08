@@ -113,7 +113,7 @@
   // ----- ОТПРАВКА ЧЕРЕЗ EMAILJS -----
   async function sendOrderViaEmail() {
     const templateParams = {
-      to_email: "vs29062009@gmail.com",   // ← СЮДА ВАШ EMAIL (можно также оставить пустым, если заполните в шаблоне)
+      to_email: "kvs29062009@gmail.com",   // ← СЮДА ВАШ EMAIL (можно также оставить пустым, если заполните в шаблоне)
       customer_name: customer.name || "—",
       customer_phone: customer.phone || "—",
       customer_address: customer.address || "—",
