@@ -92,7 +92,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  renderCart();
 
   // ===== ПЕРЕХОД К ОПЛАТЕ =====
   const goPaymentBtn = document.getElementById("go-payment");
