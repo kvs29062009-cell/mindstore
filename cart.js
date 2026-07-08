@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (promoInput.value.trim().toUpperCase() === PROMO_CODE) {
         promoApplied = true;
         localStorage.setItem("promo", PROMO_CODE);
-        promoMessage.textContent = "Промокод применён 🎉 Скидка 10%";
+        promoMessage.textContent = "Промокод применён 🎉 Скидка 20%";
         promoMessage.style.color = "green";
         renderCart();
       } else {
