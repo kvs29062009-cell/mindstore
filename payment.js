@@ -1,8 +1,8 @@
 ﻿document.addEventListener("DOMContentLoaded", () => {
   // ---------- КОНСТАНТЫ ----------
   const DELIVERY_PRICE = 550;
-  const PROMO_CODE = "gucd";
-  const PROMO_DISCOUNT = 0.10;
+  const PROMO_CODE = "World Cup";
+  const PROMO_DISCOUNT = 0.20;
 
   // ---------- НАСТРОЙКИ EMAILJS (ЗАМЕНИТЕ НА СВОИ) ----------
   const EMAILJS_SERVICE_ID = "service_g05zmnl";   // Ваш Service ID
