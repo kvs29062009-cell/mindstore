@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   // ---------- КОНСТАНТЫ ----------
-  const DELIVERY_PRICE = 550;
+  const DELIVERY_PRICE = 600;
 
   // ----- СПИСОК ПРОМОКОДОВ (дублируем для согласованности) -----
   const PROMO_CODES = [
