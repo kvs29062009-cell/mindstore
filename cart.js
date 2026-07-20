@@ -6,11 +6,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const totalPriceEl = document.getElementById("total-price");
 
   const DELIVERY_PRICE = 550;
-  const PROMO_CODE = "K19G40WH";
-  const PROMO_DISCOUNT = 0.30;
 
-  // 👉 читаем промокод при загрузке
-  let promoApplied = localStorage.getItem("promo") === PROMO_CODE;
+  // ----- СПИСОК ПРОМОКОДОВ -----
+  const PROMO_CODES = [
+    { code: "K19G40WH", discount: 0.30 },
+    { code: "S93HL24",  discount: 0.20 }
+  ];
+
+  // ----- ВСПОМОГАТЕЛЬНАЯ ФУНКЦИЯ ПОИСКА СКИДКИ -----
+  function getDiscountByCode(code) {
+    if (!code) return 0;
+    const found = PROMO_CODES.find(p => p.code === code.toUpperCase());
+    return found ? found.discount : 0;
+  }
+
+  // 👉 читаем применённый промокод из localStorage
+  let appliedPromoCode = localStorage.getItem("promo") || null;
 
   // ===== РЕНДЕР КОРЗИНЫ =====
   function renderCart() {
@@ -28,8 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     cart.forEach((item, index) => {
-
-      // 🔒 защита от старых товаров
       const qty = item.quantity ? item.quantity : 1;
       productsTotal += item.price * qty;
 
@@ -51,7 +60,9 @@ document.addEventListener("DOMContentLoaded", () => {
       cartItemsContainer.appendChild(div);
     });
 
-    let discount = promoApplied ? productsTotal * PROMO_DISCOUNT : 0;
+    // ---- Расчёт скидки ----
+    const discountPercent = getDiscountByCode(appliedPromoCode);
+    const discount = productsTotal * discountPercent;
 
     productsPriceEl.textContent = productsTotal;
     deliveryPriceEl.textContent = DELIVERY_PRICE;
@@ -79,10 +90,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (promoBtn) {
     promoBtn.addEventListener("click", () => {
-      if (promoInput.value.trim().toUpperCase() === PROMO_CODE) {
-        promoApplied = true;
-        localStorage.setItem("promo", PROMO_CODE);
-        promoMessage.textContent = "Промокод применён 🎉 Скидка 30%";
+      const entered = promoInput.value.trim().toUpperCase();
+      const found = PROMO_CODES.find(p => p.code === entered);
+
+      if (found) {
+        appliedPromoCode = entered;
+        localStorage.setItem("promo", entered);
+        promoMessage.textContent = `Промокод применён 🎉 Скидка ${Math.round(found.discount * 100)}%`;
         promoMessage.style.color = "green";
         renderCart();
       } else {
@@ -93,7 +107,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   renderCart();
-
 
   // ===== ПЕРЕХОД К ОПЛАТЕ =====
   const goPaymentBtn = document.getElementById("go-payment");
@@ -121,7 +134,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
-
 
 
 
