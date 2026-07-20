@@ -2,7 +2,7 @@
   // ---------- КОНСТАНТЫ ----------
   const DELIVERY_PRICE = 550;
   const PROMO_CODE = "K19G40WH";
-  const PROMO_DISCOUNT = 0.20;
+  const PROMO_DISCOUNT = 0.30;
 
   // ---------- НАСТРОЙКИ EMAILJS (ЗАМЕНИТЕ НА СВОИ) ----------
   const EMAILJS_SERVICE_ID = "service_g05zmnl";   // Ваш Service ID
