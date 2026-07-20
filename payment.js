@@ -1,13 +1,23 @@
-﻿document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
   // ---------- КОНСТАНТЫ ----------
   const DELIVERY_PRICE = 550;
-  const PROMO_CODE = "K19G40WH";
-  const PROMO_DISCOUNT = 0.30;
 
-  // ---------- НАСТРОЙКИ EMAILJS (ЗАМЕНИТЕ НА СВОИ) ----------
-  const EMAILJS_SERVICE_ID = "service_g05zmnl";   // Ваш Service ID
-  const EMAILJS_TEMPLATE_ID = "template_sp3cq9d";  // Ваш Template ID
-  // ----------------------------------------------------------
+  // ----- СПИСОК ПРОМОКОДОВ (дублируем для согласованности) -----
+  const PROMO_CODES = [
+    { code: "K19G40WH", discount: 0.30 },
+    { code: "S93HL24",  discount: 0.20 }
+  ];
+
+  function getDiscountByCode(code) {
+    if (!code) return 0;
+    const found = PROMO_CODES.find(p => p.code === code.toUpperCase());
+    return found ? found.discount : 0;
+  }
+
+  // ---------- НАСТРОЙКИ EMAILJS ----------
+  const EMAILJS_SERVICE_ID = "service_g05zmnl";
+  const EMAILJS_TEMPLATE_ID = "template_sp3cq9d";
+  // -------------------------------------
 
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   const customer = JSON.parse(localStorage.getItem("customer")) || {};
@@ -23,8 +33,10 @@
   cart.forEach(item => {
     productsTotal += (item.price || 0) * (item.quantity || 1);
   });
-  const promo = localStorage.getItem("promo");
-  let discount = (promo === PROMO_CODE) ? productsTotal * PROMO_DISCOUNT : 0;
+
+  const promo = localStorage.getItem("promo") || null;
+  const discountPercent = getDiscountByCode(promo);
+  const discount = productsTotal * discountPercent;
   const total = productsTotal - discount + DELIVERY_PRICE;
 
   if (totalEl) totalEl.textContent = total.toLocaleString() + " ₽";
@@ -92,14 +104,13 @@
       </table>
       <hr/>
       <p><strong>Сумма товаров:</strong> ${productsTotal.toLocaleString()} ₽</p>
-      ${discount > 0 ? `<p><strong>Скидка:</strong> ${discount.toLocaleString()} ₽</p>` : ""}
+      ${discount > 0 ? `<p><strong>Скидка (${Math.round(discountPercent * 100)}%):</strong> ${discount.toLocaleString()} ₽</p>` : ""}
       <p><strong>Доставка:</strong> ${DELIVERY_PRICE} ₽</p>
       <p><strong>ИТОГО К ОПЛАТЕ:</strong> ${total.toLocaleString()} ₽</p>
       <p><em>Статус: ожидает проверки оплаты</em></p>
     `;
   }
 
-  // Простая защита от XSS
   function escapeHtml(str) {
     if (!str) return "";
     return str.replace(/[&<>]/g, function(m) {
@@ -113,7 +124,7 @@
   // ----- ОТПРАВКА ЧЕРЕЗ EMAILJS -----
   async function sendOrderViaEmail() {
     const templateParams = {
-      to_email: "kvs29062009@gmail.com",   // ← СЮДА ВАШ EMAIL (можно также оставить пустым, если заполните в шаблоне)
+      to_email: "kvs29062009@gmail.com",
       customer_name: customer.name || "—",
       customer_phone: customer.phone || "—",
       customer_address: customer.address || "—",
@@ -126,11 +137,11 @@
       console.log("Письмо отправлено!", response);
       return true;
     } catch (error) {
-  console.error("Ошибка EmailJS:", error);
-  let errorMsg = error.text || error.message || "Неизвестная ошибка";
-  alert("Не удалось отправить заказ.\n\n" + errorMsg);
-  return false;
-}
+      console.error("Ошибка EmailJS:", error);
+      let errorMsg = error.text || error.message || "Неизвестная ошибка";
+      alert("Не удалось отправить заказ.\n\n" + errorMsg);
+      return false;
+    }
   }
 
   // ----- ОБРАБОТЧИК КНОПКИ "Я ОПЛАТИЛ" -----
