@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const DELIVERY_PRICE = 550;
   const PROMO_CODE = "K19G40WH";
-  const PROMO_DISCOUNT = 0.20;
+  const PROMO_DISCOUNT = 0.30;
 
   // 👉 читаем промокод при загрузке
   let promoApplied = localStorage.getItem("promo") === PROMO_CODE;
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (promoInput.value.trim().toUpperCase() === PROMO_CODE) {
         promoApplied = true;
         localStorage.setItem("promo", PROMO_CODE);
-        promoMessage.textContent = "Промокод применён 🎉 Скидка 20%";
+        promoMessage.textContent = "Промокод применён 🎉 Скидка 30%";
         promoMessage.style.color = "green";
         renderCart();
       } else {
