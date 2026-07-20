@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const deliveryPriceEl = document.getElementById("delivery-price");
   const totalPriceEl = document.getElementById("total-price");
 
-  const DELIVERY_PRICE = 550;
+  const DELIVERY_PRICE = 600;
 
   // ----- СПИСОК ПРОМОКОДОВ -----
   const PROMO_CODES = [
