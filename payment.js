@@ -1,7 +1,7 @@
 ﻿document.addEventListener("DOMContentLoaded", () => {
   // ---------- КОНСТАНТЫ ----------
   const DELIVERY_PRICE = 550;
-  const PROMO_CODE = "WORLDCUP";
+  const PROMO_CODE = "K19G40WH";
   const PROMO_DISCOUNT = 0.20;
 
   // ---------- НАСТРОЙКИ EMAILJS (ЗАМЕНИТЕ НА СВОИ) ----------
