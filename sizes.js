@@ -4,10 +4,10 @@ const productSizesAvailability = {
   'black': {
     '38': { available: false, maxQuantity: 0 },   // максимум 5 шт
     '39': { available: false, maxQuantity: 0 },   // максимум 3 шт
-    '40': { available: false, maxQuantity: 0 },  // нет в наличии
+    '40': { available: false, maxQuantity: 1 },  // нет в наличии
     '41': { available: true, maxQuantity: 1 },   // максимум 7 шт
     '42': { available: true, maxQuantity: 1 },  // нет в наличии
-    '43': { available: true, maxQuantity: 1 },   // максимум 2 шт
+    '43': { available: true, maxQuantity: 0 },   // максимум 2 шт
     '44': { available: false, maxQuantity: 0 }   // нет в наличии
   },
   // Для красных кроссовок
@@ -15,29 +15,29 @@ const productSizesAvailability = {
     '38': { available: false, maxQuantity: 0 },
     '39': { available: false, maxQuantity: 0 },
     '40': { available: false, maxQuantity: 0 },
-    '41': { available: false, maxQuantity: 0 },
+    '41': { available: false, maxQuantity: 1 },
     '42': { available: true, maxQuantity: 1 },
-    '43': { available: true, maxQuantity: 1 },
+    '43': { available: true, maxQuantity: 0 },
     '44': { available: false, maxQuantity: 0 }
   },
   // Для серых кроссовок
   'gray': {
     '38': { available: false, maxQuantity: 0 },
-    '39': { available: false, maxQuantity: 0 },
+    '39': { available: false, maxQuantity: 1 },
     '40': { available: true, maxQuantity: 1 },
     '41': { available: true, maxQuantity: 1 },
-    '42': { available: true, maxQuantity: 1 },
+    '42': { available: true, maxQuantity: 0 },
     '43': { available: false, maxQuantity: 0 },
     '44': { available: false, maxQuantity: 0 }
   },
   // Для случайного цвета
   'random': {
     '38': { available: false, maxQuantity: 0 },
-    '39': { available: false, maxQuantity: 0 },
-    '40': { available: true, maxQuantity: 1 },
-    '41': { available: true, maxQuantity: 2 },
-    '42': { available: true, maxQuantity: 3 },
-    '43': { available: true, maxQuantity: 2 },
+    '39': { available: false, maxQuantity: 1 },
+    '40': { available: true, maxQuantity: 2 },
+    '41': { available: true, maxQuantity: 3 },
+    '42': { available: true, maxQuantity: 2 },
+    '43': { available: true, maxQuantity: 0 },
     '44': { available: false, maxQuantity: 0 }
   }
 };
